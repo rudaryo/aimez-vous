@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PBZQS8XS');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aimez-Vous | Chant</title>
+<meta name="description" content="Écouter un chant de louange sur Aimez-Vous.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕊️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --nuit:#14223F; --manteau:#2C4A86; --cierge:#E9B949;
+    --page:#F7F8FB; --encre:#1B2232; --doux:#5A6378;
+    --display:"Marcellus", Georgia, "Times New Roman", serif;
+    --texte:"Alegreya Sans", "Segoe UI", system-ui, sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);color:var(--encre);font-family:var(--texte);font-size:18px;line-height:1.5}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--cierge);outline-offset:3px;border-radius:4px}
+
+  .haut{background:var(--nuit);color:#fff;padding:calc(14px + env(safe-area-inset-top,0px)) 20px 14px}
+  .haut-int{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .marque{font-family:var(--display);font-size:1.5rem;text-decoration:none}
+  .retour{color:#DDE3F0;text-decoration:none;font-size:1rem}
+  .retour:hover{color:var(--cierge);text-decoration:underline}
+
+  main{max-width:1000px;margin:0 auto;padding:28px 20px 48px}
+  .cat{color:var(--manteau);font-size:1rem;margin:0}
+  h1{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.15;margin:4px 0 2px;color:var(--nuit)}
+  .ref{color:var(--doux);margin:0 0 20px}
+
+  /* ---------- Le cadre du lecteur ---------- */
+  .cadre{
+    position:relative;aspect-ratio:16/9;width:100%;background:#000;border-radius:10px;overflow:hidden;
+    box-shadow:0 10px 30px rgba(20,34,63,.25);
+  }
+  .cadre iframe,.cadre video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+  .cadre .fond{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
+  .cadre .fond-titre{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;
+    color:#fff;font-family:var(--display);font-size:clamp(1.4rem,4vw,2.4rem);
+    background:linear-gradient(160deg,var(--manteau),var(--nuit));
+  }
+  .cadre audio{position:absolute;left:16px;right:16px;bottom:16px;width:calc(100% - 32px)}
+  .manque{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:#fff;background:var(--nuit)}
+
+  /* Plein écran (navigateurs qui le permettent) */
+  .cadre:fullscreen{aspect-ratio:auto;border-radius:0;width:100%;height:100%}
+  .cadre:-webkit-full-screen{aspect-ratio:auto;border-radius:0;width:100%;height:100%}
+  /* Plein écran de secours (iPhone) */
+  .cadre.agrandi{position:fixed;inset:0;z-index:50;aspect-ratio:auto;border-radius:0;
+    padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+  .cadre.agrandi audio{bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+  .sortir{
+    display:none;position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:12px;z-index:2;
+    font:inherit;font-size:.95rem;border:0;border-radius:999px;padding:7px 14px;cursor:pointer;
+    background:rgba(255,255,255,.9);color:var(--nuit);font-weight:700;
+  }
+  .cadre.agrandi .sortir,.cadre:fullscreen .sortir{display:block}
+
+  .actions{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 0}
+  .bouton{
+    font:inherit;font-size:1rem;border-radius:999px;padding:8px 18px;cursor:pointer;text-decoration:none;
+    border:1px solid #CBD2E1;background:#fff;color:var(--encre);display:inline-flex;align-items:center;gap:8px;
+  }
+  .bouton.plein{background:var(--manteau);border-color:var(--manteau);color:#fff}
+  .bouton:hover{border-color:var(--manteau)}
+  .bouton svg{width:16px;height:16px;fill:currentColor}
+
+  .paroles{margin-top:34px;max-width:62ch}
+  .paroles h2{font-family:var(--display);font-weight:400;font-size:1.5rem;margin:0 0 10px;color:var(--nuit)}
+  .paroles div{white-space:pre-line;line-height:1.65}
+
+  .suite{display:flex;justify-content:space-between;gap:16px;margin-top:40px;padding-top:20px;border-top:1px solid #DCE1EC}
+  .suite a{text-decoration:none;max-width:48%}
+  .suite a:hover .t{text-decoration:underline}
+  .suite small{display:block;color:var(--doux);font-size:.9rem}
+  .suite .t{font-weight:500}
+  .suite .droite{text-align:right;margin-left:auto}
+
+  footer{background:var(--nuit);color:#C6CEE0;text-align:center;padding:28px 20px calc(28px + env(safe-area-inset-bottom,0px));font-size:.95rem}
+  footer a{color:var(--cierge)}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBZQS8XS"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="haut">
+  <div class="haut-int">
+    <a class="marque" href="./">Aimez-Vous</a>
+    <a class="retour" href="./">Retour aux chants</a>
+  </div>
+</header>
+
+<main id="page"></main>
+
+<footer><a href="./">Aimez-Vous</a> · Chants et psaumes à écouter, prier et partager</footer>
+
+<script src="chants.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const ICONE_PE = '<svg viewBox="0 0 24 24"><path d="M3 3h7v2H5v5H3zm11 0h7v7h-2V5h-5zM3 14h2v5h5v2H3zm16 0h2v7h-7v-2h5z"/></svg>';
+
+const cle = new URLSearchParams(location.search).get("c");
+const ch = CHANTS.find(x => x.slug === cle);
+
+if(!ch){
+  $("#page").innerHTML = `<h1>Chant introuvable</h1>
+    <p>Ce lien ne correspond à aucun chant. <a href="./">Voir tous les chants</a>.</p>`;
+} else {
+  document.title = ch.titre + " | Aimez-Vous";
+  const cat = CATEGORIES.find(c => c.id === ch.cat);
+  const id = idYouTube(ch.url);
+  const img = imageDe(ch);
+  const fond = img
+    ? `<img class="fond" src="${echapper(img)}" alt="">`
+    : `<div class="fond-titre">${echapper(ch.titre)}</div>`;
+
+  let lecteur, peutAgrandir = true;
+  if(ch.video){
+    lecteur = `<video src="${echapper(ch.video)}" controls playsinline preload="metadata"${img ? ` poster="${echapper(img)}"` : ""}></video>`;
+  } else if(ch.audio){
+    lecteur = fond + `<audio src="${echapper(ch.audio)}" controls preload="metadata"></audio>`;
+  } else if(id){
+    lecteur = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="${echapper(ch.titre)}"
+      allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+  } else {
+    lecteur = `<div class="manque">Ce chant n'est pas encore disponible. Revenez bientôt.</div>`;
+    peutAgrandir = false;
+  }
+
+  // chants précédent et suivant dans la même catégorie
+  const memes = CHANTS.filter(x => x.cat === ch.cat);
+  const i = memes.indexOf(ch);
+  const prec = memes[i-1], suiv = memes[i+1];
+
+  $("#page").innerHTML = `
+    <p class="cat">${echapper(cat ? cat.nom : "")}</p>
+    <h1>${echapper(ch.titre)}</h1>
+    ${ch.ref ? `<p class="ref">${echapper(ch.ref)}</p>` : `<div style="height:18px"></div>`}
+
+    <div class="cadre" id="cadre">
+      ${lecteur}
+      <button class="sortir" id="sortir">Quitter le plein écran</button>
+    </div>
+
+    <div class="actions">
+      ${peutAgrandir ? `<button class="bouton plein" id="agrandir">${ICONE_PE} Plein écran</button>` : ""}
+      ${id ? `<a class="bouton" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">Ouvrir sur YouTube</a>` : ""}
+      <button class="bouton" id="partager">Partager ce chant</button>
+    </div>
+
+    ${ch.paroles ? `<section class="paroles"><h2>Paroles</h2><div>${echapper(ch.paroles.trim())}</div></section>` : ""}
+
+    <nav class="suite" aria-label="Autres chants">
+      ${prec ? `<a href="chant.html?c=${prec.slug}"><small>Chant précédent</small><span class="t">${echapper(prec.titre)}</span></a>` : ""}
+      ${suiv ? `<a class="droite" href="chant.html?c=${suiv.slug}"><small>Chant suivant</small><span class="t">${echapper(suiv.titre)}</span></a>` : ""}
+    </nav>`;
+
+  const cadre = $("#cadre");
+  const plein = () => document.fullscreenElement || document.webkitFullscreenElement;
+
+  function agrandir(){
+    const video = cadre.querySelector("video");
+    if(cadre.requestFullscreen){ cadre.requestFullscreen().catch(secours); }
+    else if(cadre.webkitRequestFullscreen){ cadre.webkitRequestFullscreen(); }
+    else if(video && video.webkitEnterFullscreen){ video.webkitEnterFullscreen(); }
+    else { secours(); }
+  }
+  function secours(){ cadre.classList.add("agrandi"); document.body.style.overflow = "hidden"; }
+  function reduire(){
+    if(plein()){ (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+    cadre.classList.remove("agrandi"); document.body.style.overflow = "";
+  }
+
+  if($("#agrandir")) $("#agrandir").addEventListener("click", agrandir);
+  $("#sortir").addEventListener("click", reduire);
+  document.addEventListener("keydown", e => { if(e.key === "Escape") reduire(); });
+
+  $("#partager").addEventListener("click", async () => {
+    const donnees = { title: ch.titre + " | Aimez-Vous", url: location.href };
+    if(navigator.share){ try{ await navigator.share(donnees); }catch(e){} }
+    else {
+      try{ await navigator.clipboard.writeText(location.href); $("#partager").textContent = "Lien copié"; }
+      catch(e){ prompt("Copiez ce lien :", location.href); }
+    }
+  });
+}
+</script>
+</body>
+</html>
